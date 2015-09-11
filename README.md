@@ -1,3 +1,5 @@
+Note: recipes in this repository is unstable yet...
+
 # httpd24_php56_opsworks
 
 Stack Custom JSON
