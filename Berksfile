@@ -1,7 +1,8 @@
 source "https://api.berkshelf.com"
 
 # apache
-cookbook 'apache2', '~> 3.0.1'
+cookbook 'apache2', '~> 3.1.0'
 
 # php
-cookbook 'php', '~> 1.5.0'
+cookbook 'php', '~> 1.7.2'
+
