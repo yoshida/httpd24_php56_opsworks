@@ -11,3 +11,6 @@ cookbook 'composer', '~> 2.2.0'
 
 # mysql
 cookbook 'mysql', '~> 6.1.0'
+
+# nginx
+cookbook 'nginx', '~> 2.7.6'
