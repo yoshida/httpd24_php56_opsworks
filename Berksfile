@@ -11,7 +11,7 @@ cookbook 'composer', '~> 2.2.0'
 #cookbook "composer", git: "https://github.com/escapestudios-cookbooks/composer.git", branch: "2.2.0"
 
 # mysql
-cookbook 'mysql', '~> 6.1.0'
+cookbook 'mysql', '= 5.6.3'
 
 # nginx
 #cookbook 'nginx', '~> 2.7.6'
