@@ -7,7 +7,8 @@ cookbook 'apache2', '~> 3.1.0'
 cookbook 'php', '~> 1.7.2'
 
 # composer
-cookbook 'composer', '~> 2.2.0'
+#cookbook 'composer', '~> 2.2.0'
+cookbook "composer", git: "https://github.com/escapestudios-cookbooks/composer.git", branch: "2.2.0"
 
 # mysql
 cookbook 'mysql', '~> 6.1.0'
