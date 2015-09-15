@@ -1,6 +1,7 @@
 
 # setup Apache virtual host
 node[:deploy].each do |application, deploy|
+  include_recipe 'apache2::service'
 
   if deploy[:application_type] != 'php'
     Chef::Log.debug("Skipping deploy::apache-vhost application #{application} as it is not an PHP app")
