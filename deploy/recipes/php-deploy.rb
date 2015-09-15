@@ -3,7 +3,6 @@
 # Recipe:: php
 #
 
-include_recipe 'deploy'
 include_recipe 'deploy::apache-vhost'
 
 node[:deploy].each do |application, deploy|
