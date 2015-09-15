@@ -56,6 +56,7 @@ define :web_app, :template => 'web_app.conf.erb' do
   end
   
   apache_site "#{params[:name]}.conf" do
+    Chef::Log.debug("Passing apache_site conf:#{params[:name]}, enable_setting:#{enable_setting} ")
     enable enable_setting
   end
 end
