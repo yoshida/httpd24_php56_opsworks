@@ -1,4 +1,3 @@
-include_recipe 'apache2'
 
 # setup Apache virtual host
 node[:deploy].each do |application, deploy|
