@@ -6,20 +6,32 @@
   DocumentRoot <%= @params[:docroot] %>
 
   <Directory <%= @params[:docroot] %>>
-    Options FollowSymLinks
-    AllowOverride All
+    Options <%= [@params[:directory_options] || "FollowSymLinks" ].flatten.join " " %>
+    AllowOverride <%= [@params[:allow_override] || "None" ].flatten.join " " %>
+  <% if node['apache']['version'] == '2.4' -%>
+    Require all granted
+  <% else -%>
     Order allow,deny
     Allow from all
+  <% end -%>
   </Directory>
 
   <Directory ~ "\.svn">
+  <% if node['apache']['version'] == '2.4' -%>
+    Require all denied
+  <% else -%>
     Order allow,deny
     Deny from all
+  <% end -%>
   </Directory>
 
   <Directory ~ "\.git">
+  <% if node['apache']['version'] == '2.4' -%>
+    Require all denied
+  <% else -%>
     Order allow,deny
     Deny from all
+  <% end -%>
   </Directory>
 
   LogLevel <%= node[:apache][:log_level] %>
@@ -71,20 +83,32 @@
   SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown downgrade-1.0 force-response-1.0
 
   <Directory <%= @params[:docroot] %>>
-    Options FollowSymLinks
-    AllowOverride All
+    Options <%= [@params[:directory_options] || "FollowSymLinks" ].flatten.join " " %>
+    AllowOverride <%= [@params[:allow_override] || "None" ].flatten.join " " %>
+  <% if node['apache']['version'] == '2.4' -%>
+    Require all granted
+  <% else -%>
     Order allow,deny
     Allow from all
+  <% end -%>
   </Directory>
 
   <Directory ~ "\.svn">
+  <% if node['apache']['version'] == '2.4' -%>
+    Require all denied
+  <% else -%>
     Order allow,deny
     Deny from all
+  <% end -%>
   </Directory>
 
   <Directory ~ "\.git">
+  <% if node['apache']['version'] == '2.4' -%>
+    Require all denied
+  <% else -%>
     Order allow,deny
     Deny from all
+  <% end -%>
   </Directory>
 
   LogLevel <%= node[:apache][:log_level] %>
