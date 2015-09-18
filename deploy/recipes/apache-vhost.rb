@@ -16,6 +16,7 @@ node[:deploy].each do |application, deploy|
     end
     mounted_at deploy[:mounted_at]
     ssl_certificate_ca deploy[:ssl_certificate_ca]
+    allow_override deploy[:allow_override]
     enable true
   end
 
