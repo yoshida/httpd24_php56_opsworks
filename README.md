@@ -17,15 +17,18 @@ This recipes tested on Amazon Linux version: `Amazon Linux 2015.03`
   * Setup: `apache2` `php` `apache2::mod_php5` `composer`
     * Note: `composer` is optional
   * Deploy: `deploy::php-deploy`
-5. Add a new application from the "Apps" section if you want to try phpinfo sample app
-6. Under Settings:
+
+## Initial Apps Setup
+
+1. Add a new application from the "Apps" section if you want to try phpinfo sample app
+2. Under Settings:
    - Name: `phpinfo`
    - Type: `PHP`
    - Document root: `public`
    - Data source type: `None`
    - Repository URL: `https://github.com/yoshida/phpinfo.git`
-7. Deploy `phpinfo` application 
-8. Open http://[your-server]/phpinfo.php
+3. Deploy `phpinfo` application 
+4. Open http://[your-server]/phpinfo.php
 
 ## Stack Custom JSON
 
