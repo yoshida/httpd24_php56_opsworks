@@ -33,7 +33,7 @@ node[:deploy].each do |app_name, deploy|
 
   execute "artisan migrate" do
     command <<-EOH
-      php artisan migrate
+      php #{deploy[:deploy_to]}/current/artisan migrate
     EOH
   end
 
