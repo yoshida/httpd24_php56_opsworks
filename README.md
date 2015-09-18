@@ -13,6 +13,8 @@ This recipes tested on Amazon Linux version: `Amazon Linux 2015.03`
    - Enable "Manage Berkshelf" with `3.2.0` as the version
    - Edit "Custom JSON" (refer to `Stack Custom JSON` section.)
 3. Add a new `Custom -> Custom` layer.
+  * Name: `PHP5.6 App Server` (as you like)
+  * Short name: `php56app` (as you like)
 4. Edit the newly created layer, and add the custom recipes:
   * Setup: `apache2` `php` `apache2::mod_php5` `composer`
     * Note: `composer` is optional
