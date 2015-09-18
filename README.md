@@ -1,15 +1,15 @@
-AWS OpsWorks custom layer with support for PHP 5.6 and php application deployment.
 
 # httpd24_php56_opsworks
 
 AWS OpsWorks custom layer with support for PHP 5.6 and Apache 2.4 and php application deployment.
+This recipes tested on Amazon Linux version: `Amazon Linux 2015.03`
 
 ## Initial Stack Setup
 
 1. Add a new stack
 2. Under Advanced Settings:
    - Pick chef version `11.10` as the chef version
-   - Use custom cookbook pointing to `https://github.com/yoshida/httpd24_php56_opsworks.git` (or fork this repo and host it yourself)
+   - Use custom cookbook pointing to `https://github.com/yoshida/httpd24_php56_opsworks.git`
    - Enable "Manage Berkshelf" with `3.2.0` as the version
    - Edit Custom JSON
 3. Add a new `App Server -> Custom Layer` layer. (Note: that only Amazon Linux AMI is supported.)
