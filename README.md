@@ -11,13 +11,21 @@ This recipes tested on Amazon Linux version: `Amazon Linux 2015.03`
    - Pick chef version `11.10` as the chef version
    - Use custom cookbook pointing to `https://github.com/yoshida/httpd24_php56_opsworks.git`
    - Enable "Manage Berkshelf" with `3.2.0` as the version
-   - Edit Custom JSON
-3. Add a new `App Server -> Custom Layer` layer. (Note: that only Amazon Linux AMI is supported.)
+   - Edit Custom JSON (refer to `Stack Custom JSON` section.)
+3. Add a new `Custom -> Custom` layer.
 4. Edit the newly created layer, and add the custom recipes:
   * Setup: `apache2` `php` `apache2::mod_php5` `composer`
     * Note: `composer` is optional
   * Deploy: `deploy::php-deploy`
-5. Add a PHP application from the "Applications" section
+5. Add a new application from the "Apps" section if you want to try phpinfo sample app
+6. Under Settings:
+   - Name: `phpinfo`
+   - Type: `PHP`
+   - Document root: `public`
+   - Data source type: `None`
+   - Repository URL: `https://github.com/yoshida/phpinfo.git`
+7. Deploy `phpinfo` application 
+8. Open http://[your-server]/phpinfo.php
 
 ## Stack Custom JSON
 
