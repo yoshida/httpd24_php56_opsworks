@@ -14,8 +14,9 @@ This recipes tested on Amazon Linux version: `Amazon Linux 2015.03`
    - Edit Custom JSON
 3. Add a new `App Server -> Custom Layer` layer. (Note: that only Amazon Linux AMI is supported.)
 4. Edit the newly created layer, and add the custom recipes:
-  * Setup: apache2 php composer apache2::mod_php5
-  * Deploy: deploy::php-deploy
+  * Setup: `apache2` `php` `apache2::mod_php5` `composer`
+    * Note: `composer` is optional
+  * Deploy: `deploy::php-deploy`
 5. Add a PHP application from the "Applications" section
 
 ## Stack Custom JSON
