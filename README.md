@@ -11,7 +11,7 @@ This recipes tested on Amazon Linux version: `Amazon Linux 2015.03`
    - Pick chef version `11.10` as the chef version
    - Use custom cookbook pointing to `https://github.com/yoshida/httpd24_php56_opsworks.git`
    - Enable "Manage Berkshelf" with `3.2.0` as the version
-   - Edit Custom JSON (refer to `Stack Custom JSON` section.)
+   - Edit "Custom JSON" (refer to `Stack Custom JSON` section.)
 3. Add a new `Custom -> Custom` layer.
 4. Edit the newly created layer, and add the custom recipes:
   * Setup: `apache2` `php` `apache2::mod_php5` `composer`
