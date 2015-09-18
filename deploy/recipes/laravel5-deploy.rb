@@ -5,7 +5,7 @@
 
 node[:deploy].each do |app_name, deploy|
 
-  execute "action" do
+  execute "composer" do
     command <<-EOH
       composer install -d #{deploy[:deploy_to]}/current
     EOH
@@ -19,7 +19,7 @@ node[:deploy].each do |app_name, deploy|
     group deploy[:group]
     owner deploy[:user]
     mode 0777
-    action :touch
+    action :create
     recursive true
   end
 
@@ -27,11 +27,11 @@ node[:deploy].each do |app_name, deploy|
     group deploy[:group]
     owner deploy[:user]
     mode 0777
-    action :touch
+    action :create
     recursive true
   end
 
-  execute "action" do
+  execute "artisan migrate" do
     command <<-EOH
       php artisan migrate
     EOH
