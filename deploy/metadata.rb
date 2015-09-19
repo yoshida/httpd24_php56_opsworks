@@ -1,6 +1,6 @@
 name        "deploy"
 description "Deploy applications"
-maintainer  "Opsworks"
+maintainer  "Studio Arcana co.,Ltd."
 license     "Apache 2.0"
 version     "1.0.0"
 
@@ -11,4 +11,5 @@ depends "ssh_users"
 depends "opsworks_agent_monit"
 depends "php"
 
-recipe "deploy::php", "Deploy a PHP application"
+recipe "deploy::php-deploy", "Deploy a PHP application"
+recipe "deploy::laravel5-deploy", "Basic Configuration for Laravel 5.1"
