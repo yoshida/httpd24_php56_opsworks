@@ -8,6 +8,3 @@ cookbook 'php', '~> 1.7.2'
 
 # composer
 cookbook 'composer', '~> 2.2.0'
-
-# nginx
-cookbook 'nginx', '~> 2.7.6'
