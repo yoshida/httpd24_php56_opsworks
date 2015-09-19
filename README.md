@@ -24,7 +24,7 @@ Recipes in this cookbooks use `apache2` `php` `composer` retrieved from Chef Sup
   * Setup: `apache2` `php` `apache2::mod_php5` `composer`
     * Note: `composer` is optional
   * Deploy: `deploy::php-deploy`
-    * Note: `deploy::laravel5-deploy` is optional if you use Laravel 5
+    * Note: `deploy::laravel5-deploy` is optional if you use Laravel 5.1
 
 ## Initial Apps Setup
 
