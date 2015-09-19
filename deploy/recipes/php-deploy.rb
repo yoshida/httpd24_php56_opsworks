@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: deploy
-# Recipe:: php
+# Recipe:: php-deploy
 #
 
 include_recipe 'deploy::default'
