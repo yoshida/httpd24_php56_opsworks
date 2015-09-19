@@ -7,7 +7,7 @@ Support for PHP 5.6 and Apache 2.4 and PHP Application deployment.
 
 * Note: This recipes tested on Amazon Linux version: `Amazon Linux 2015.03`
 
-Recipes in this cookbooks use `apache2` `php` `composer` retrieved from Chef Supermarket.
+Recipes in this cookbooks use `apache2` `php` `composer` retrieved from Chef Supermarket via Berkshelf.
 
 ## Initial Stack Setup
 
