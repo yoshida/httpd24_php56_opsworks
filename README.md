@@ -22,9 +22,9 @@ This cookbooks use `apache2` `php` `composer` recipes retrieved from Chef Superm
   * Short name: `php56app` (as you like)
 4. Edit the newly created layer, and add the custom recipes:
   * Setup: `apache2` `php` `apache2::mod_php5` `composer`
-    * Note: `composer` is optional
+    * Note: `composer` is optional recipe if you want to use composer
   * Deploy: `deploy::php-deploy`
-    * Note: `deploy::laravel5-deploy` is optional if you use Laravel 5.1
+    * Note: `deploy::laravel5-deploy` is optional recipe for Laravel 5.1 initial configuration (`composer` required)
 
 ## Initial Apps Setup
 
