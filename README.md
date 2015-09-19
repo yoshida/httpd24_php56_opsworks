@@ -16,7 +16,7 @@ Recipes in this cookbooks use `apache2` `php` `composer` retrieved from Chef Sup
    - Pick chef version `11.10` as the chef version
    - Use custom cookbook pointing to `https://github.com/yoshida/httpd24_php56_opsworks.git`
    - Enable "Manage Berkshelf" with `3.2.0` as the version
-   - Edit "Custom JSON" (refer to `Stack Custom JSON` section.)
+   - Edit "Custom JSON" (refer to [Stack Custom JSON](#stack-custom-json) section)
 3. Add a new `Custom -> Custom` layer.
   * Name: `PHP5.6 App Server` (as you like)
   * Short name: `php56app` (as you like)
