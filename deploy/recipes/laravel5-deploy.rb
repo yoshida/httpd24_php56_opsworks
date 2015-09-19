@@ -12,7 +12,7 @@ node[:deploy].each do |app_name, deploy|
   end
 
   file "#{deploy[:deploy_to]}/current/.env" do
-    content IO.read("#{deploy[:deploy_to]}/current/.env.example")
+    lazy { content IO.read("#{deploy[:deploy_to]}/current/.env.example") }
   end
 
   directory "#{deploy[:deploy_to]}/current/storage" do
