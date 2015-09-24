@@ -10,6 +10,7 @@ depends "apache2"
 depends "ssh_users"
 depends "opsworks_agent_monit"
 depends "php"
+depends "mysql"
 
 recipe "deploy::php-deploy", "Deploy a PHP application"
 recipe "deploy::laravel5-deploy", "Basic Configuration for Laravel 5.1"
