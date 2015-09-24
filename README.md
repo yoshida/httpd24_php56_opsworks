@@ -92,7 +92,7 @@ If you want to try deployment, we provide a sample application that displays php
 ## Sample wiki apps setup
 
 If you want to try deployment another application, let's try to deploy the https://github.com/Stolz/Wiki application.
-This application developed with Laravel 5.1 and MySQL database. You must set up the MySQL instance before create Apps.
+This application developed with Laravel 5.1 and database. You must set up the MySQL instance before create Apps.
 
 1. Add a new `DB -> MySQL` layer.
 2. Edit the created MySQL layer, and add Custom JSON (workaround to avoid fail when deploy):
