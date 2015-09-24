@@ -43,11 +43,4 @@ node[:deploy].each do |app_name, deploy|
     recursive true
   end
 
-  # Execute `php artisan migrate`.
-  execute "artisan migrate" do
-    command <<-EOH
-      php #{deploy[:deploy_to]}/current/artisan migrate
-    EOH
-  end
-
 end
