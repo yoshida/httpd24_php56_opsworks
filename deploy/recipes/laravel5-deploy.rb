@@ -5,22 +5,33 @@
 
 node[:deploy].each do |app_name, deploy|
 
+  # Execute `composer install`.
   execute "composer" do
     command <<-EOH
       composer install -d #{deploy[:deploy_to]}/current
     EOH
   end
 
+  # Copy the ".env.example" file to ".env" file.
   file "#{deploy[:deploy_to]}/current/.env" do
-    lazy {
-      ::FileUtils.cp "#{deploy[:deploy_to]}/current/.env.example", path
-      dotenv = Chef::Util::FileEdit.new(path)
-      dotenv.search_file_replace_line(/^APP_ENV=.*$/, "APP_ENV=#{deploy[:laravel5_deploy][:app_env]}")
-      dotenv.search_file_replace_line(/^APP_DEBUG=.*$/, "APP_DEBUG=#{deploy[:laravel5_deploy][:app_debug]}")
-      dotenv.write_file
-    }
+    content lazy { IO.read("#{deploy[:deploy_to]}/current/.env.example") }
+    group deploy[:group]
+    owner deploy[:user]
+  end
+  
+  # Copy the ".env.example" to ".env", and edit environment configration from 'Stack Custom JSON' setting.
+  file "#{deploy[:deploy_to]}/current/.env" do
+    group deploy[:group]
+    owner deploy[:user]
+    dotenv = Chef::Util::FileEdit.new("#{deploy[:deploy_to]}/current/.env.example")
+    dotenv.search_file_replace_line(/^APP_ENV=.*$/, "APP_ENV=#{node[:laravel5_deploy][:app_env]}\n")
+    dotenv.search_file_replace_line(/^APP_DEBUG=.*$/, "APP_DEBUG=#{node[:laravel5_deploy][:app_debug]}\n")
+    content dotenv.send(:contents).join
   end
 
+
+
+  # Add write-access permission to "storage" directory.
   directory "#{deploy[:deploy_to]}/current/storage" do
     group deploy[:group]
     owner deploy[:user]
@@ -29,6 +40,7 @@ node[:deploy].each do |app_name, deploy|
     recursive true
   end
 
+  # Add write-access permission to "bootstrap/cache" directory.
   directory "#{deploy[:deploy_to]}/current/bootstrap/cache" do
     group deploy[:group]
     owner deploy[:user]
@@ -37,6 +49,7 @@ node[:deploy].each do |app_name, deploy|
     recursive true
   end
 
+  # Execute `php artisan migrate`.
   execute "artisan migrate" do
     command <<-EOH
       php #{deploy[:deploy_to]}/current/artisan migrate
