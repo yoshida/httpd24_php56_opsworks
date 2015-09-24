@@ -151,12 +151,12 @@ Next, Set up the Apps.
       "php56-mbstring",
       "php56-gd",
       "php56-bcmath",
+      "php56-tidy",
       "php56-pdo",
       "php56-mysqlnd",
       "php56-pecl-memcached",
       "php56-pecl-apcu",
-      "php56-opcache",
-      "php56-tidy"
+      "php56-opcache"
     ],
     "directives": {
       "error_log": "/var/log/httpd/php_errors.log"
