@@ -26,21 +26,13 @@ node[:deploy].each do |app_name, deploy|
   end
 
   # Add write-access permission to "storage" directory.
-  directory "#{deploy[:deploy_to]}/current/storage" do
-    group deploy[:group]
-    owner deploy[:user]
-    mode 0777
-    action :create
-    recursive true
+  execute "Add write-access permission to storage directory" do
+    command "chmod -R 777 #{deploy[:deploy_to]}/current/storage"
   end
 
   # Add write-access permission to "bootstrap/cache" directory.
-  directory "#{deploy[:deploy_to]}/current/bootstrap/cache" do
-    group deploy[:group]
-    owner deploy[:user]
-    mode 0777
-    action :create
-    recursive true
+  execute "Add write-access permission to bootstrap/cache directory" do
+    command "chmod -R 777 #{deploy[:deploy_to]}/current/bootstrap/cache"
   end
 
 end
