@@ -23,7 +23,7 @@ node[:deploy].each do |app_name, deploy|
   file "#{deploy[:deploy_to]}/current/.env" do
     group deploy[:group]
     owner deploy[:user]
-    dotenv = Chef::Util::FileEdit.new("#{deploy[:deploy_to]}/current/.env.example")
+    dotenv = lazy { Chef::Util::FileEdit.new("#{deploy[:deploy_to]}/current/.env.example") }
     node[:laravel5_deploy][:dotenv].each do |key, value|
       dotenv.search_file_replace_line(/^#{key}=.*$/, "#{key}=#{value}\n")
     end
