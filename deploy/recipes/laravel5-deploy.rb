@@ -21,6 +21,12 @@ node[:deploy].each do |app_name, deploy|
       node[:laravel5_deploy][:dotenv].each do |key, value|
         dotenv.search_file_replace_line(/^#{key}=.*$/, "#{key}=#{value}\n")
       end
+      if deploy[:database]
+        dotenv.search_file_replace_line(/^DB_HOST=.*$/, "DB_HOST=#{deploy[:database][:host]}:#{deploy[:database][:port]}\n")
+        dotenv.search_file_replace_line(/^DB_DATABASE=.*$/, "DB_DATABASE=#{deploy[:database][:database]}\n")
+        dotenv.search_file_replace_line(/^DB_USERNAME=.*$/, "DB_USERNAME=#{deploy[:database][:username]}\n")
+        dotenv.search_file_replace_line(/^DB_PASSWORD=.*$/, "DB_PASSWORD=#{deploy[:database][:password]}\n")
+      end
       dotenv.send(:contents).join
     }
   end
