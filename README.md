@@ -77,7 +77,7 @@ This cookbooks use `apache2` `php` `composer` recipes retrieved from Chef Superm
 
 ## Sample phpinfo apps setup
 
-If you want to try deployment, we have prepared a sample application that displays phpinfo.
+If you want to try deployment, we provide a sample application that displays phpinfo.
 
 1. Add a new application from the "Apps" section
 2. Under Settings:
