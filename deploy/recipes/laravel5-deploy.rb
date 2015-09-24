@@ -51,5 +51,8 @@ node[:deploy].each do |app_name, deploy|
     owner deploy[:user]
     to "#{deploy[:deploy_to]}/current/log"
   end
+  execute "Add write-access permission to log/*.log" do
+    command "chmod 666 #{deploy[:deploy_to]}/current/log/*.log"
+  end
 
 end
