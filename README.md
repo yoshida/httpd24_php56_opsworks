@@ -22,8 +22,9 @@ This cookbooks use `apache2` `php` `composer` recipes retrieved from Chef Superm
   * Short name: `php56app` (as you like)
 4. Edit the newly created layer, and add the custom recipes:
   * Setup: `apache2` `php` `apache2::mod_php5` `composer`
+    * Note: `apache2::mod_ssl` is optional recipe if you want to use https
     * Note: `composer` is optional recipe if you want to use composer
-    * Note: `prompt` is optional recipe for display stack name to Prompt String (PS1).
+    * Note: `prompt` is optional recipe for display stack name to Prompt String (PS1)
   * Configure: `php::configure`
   * Deploy: `deploy::php-deploy`
     * Note: `deploy::laravel5-deploy` is optional recipe for Laravel 5.1 initial configuration (`composer` required)
@@ -68,6 +69,7 @@ If you want to try deployment, we have prepared a sample application that displa
       "php56-mbstring",
       "php56-gd",
       "php56-bcmath",
+      "php56-tidy",
       "php56-pdo",
       "php56-mysqlnd",
       "php56-pecl-memcached",
