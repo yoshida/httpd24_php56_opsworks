@@ -34,5 +34,13 @@ node[:deploy].each do |app_name, deploy|
   execute "Add write-access permission to bootstrap/cache directory" do
     command "chmod -R 777 #{deploy[:deploy_to]}/current/bootstrap/cache"
   end
+  
+  # Delete <root>/storage/logs and create symlink <root>/storage/logs pointing to <root>/log
+  directory "#{deploy[:deploy_to]}/current/storage/logs" do
+    action :delete
+  end
+  link "#{deploy[:deploy_to]}/current/storage/logs" do
+    to "#{deploy[:deploy_to]}/current/log"
+  end
 
 end
