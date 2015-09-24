@@ -28,6 +28,9 @@ This cookbooks use `apache2` `php` `composer` recipes retrieved from Chef Superm
   * Deploy: `deploy::php-deploy`
     * Note: `deploy::laravel5-deploy` is optional recipe for Laravel 5.1 initial configuration (`composer` required)
       * You can customize `.env` configuration with `laravel5_deploy.dotenv` object in Stack Custom JSON (The `.env` file copied from `.env.example` file, and replace `key=value` pair in `.env` file by `laravel5_deploy.dotenv` object's key-value pair).
+    * Note: `deploy::laravel5-migrate`, `deploy::laravel5-migrate-refresh` are optional recipes for database migration.
+      * To execute these recipes, you can manually run recipes on `Stack -> Run Command -> Execute Recipes`.
+      * Learn more: http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-manual.html
 
 ## Initial Apps Setup
 
