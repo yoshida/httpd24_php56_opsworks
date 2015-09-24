@@ -41,6 +41,8 @@ node[:deploy].each do |app_name, deploy|
     recursive true
   end
   link "#{deploy[:deploy_to]}/current/storage/logs" do
+    group deploy[:group]
+    owner deploy[:user]
     to "#{deploy[:deploy_to]}/current/log"
   end
 
