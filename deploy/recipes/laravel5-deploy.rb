@@ -13,11 +13,11 @@ node[:deploy].each do |app_name, deploy|
 
   file "#{deploy[:deploy_to]}/current/.env" do
     lazy {
-      from = "#{deploy[:deploy_to]}/current/.env.example"
-      edit = Chef::Util::FileEdit.new(from)
-      edit.search_file_replace_line(/^APP_ENV=.*$/, "APP_ENV=#{deploy[:laravel5_deploy][:app_env]}")
-      edit.search_file_replace_line(/^APP_DEBUG=.*$/, "APP_DEBUG=#{deploy[:laravel5_deploy][:app_debug]}")
-      content edit.send(:contents).lines.join
+      ::FileUtils.cp "#{deploy[:deploy_to]}/current/.env.example", path
+      dotenv = Chef::Util::FileEdit.new(path)
+      dotenv.search_file_replace_line(/^APP_ENV=.*$/, "APP_ENV=#{deploy[:laravel5_deploy][:app_env]}")
+      dotenv.search_file_replace_line(/^APP_DEBUG=.*$/, "APP_DEBUG=#{deploy[:laravel5_deploy][:app_debug]}")
+      dotenv.write_file
     }
   end
 
