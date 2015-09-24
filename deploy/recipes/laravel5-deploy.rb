@@ -24,12 +24,11 @@ node[:deploy].each do |app_name, deploy|
     group deploy[:group]
     owner deploy[:user]
     dotenv = Chef::Util::FileEdit.new("#{deploy[:deploy_to]}/current/.env.example")
-    dotenv.search_file_replace_line(/^APP_ENV=.*$/, "APP_ENV=#{node[:laravel5_deploy][:app_env]}\n")
-    dotenv.search_file_replace_line(/^APP_DEBUG=.*$/, "APP_DEBUG=#{node[:laravel5_deploy][:app_debug]}\n")
+    node[:laravel5_deploy][:dotenv].each do |key, value|
+      dotenv.search_file_replace_line(/^#{key}=.*$/, "#{key}=#{value}\n")
+    end
     content dotenv.send(:contents).join
   end
-
-
 
   # Add write-access permission to "storage" directory.
   directory "#{deploy[:deploy_to]}/current/storage" do
