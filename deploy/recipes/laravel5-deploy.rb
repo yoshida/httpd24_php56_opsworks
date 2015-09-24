@@ -38,6 +38,7 @@ node[:deploy].each do |app_name, deploy|
   # Delete <root>/storage/logs and create symlink <root>/storage/logs pointing to <root>/log
   directory "#{deploy[:deploy_to]}/current/storage/logs" do
     action :delete
+    recursive true
   end
   link "#{deploy[:deploy_to]}/current/storage/logs" do
     to "#{deploy[:deploy_to]}/current/log"
