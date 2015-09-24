@@ -31,6 +31,7 @@ This cookbooks use `apache2` `php` `composer` recipes retrieved from Chef Superm
     * Note: `deploy::laravel5-migrate`, `deploy::laravel5-migrate-refresh` are optional recipes for database migration.
       * To execute these recipes, you can manually run recipes on `Stack -> Run Command -> Execute Recipes`.
       * Learn more: http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-manual.html
+  * Undeploy: `deploy::php-undeploy`
 
 ## Initial Apps Setup
 
