@@ -25,6 +25,7 @@ This cookbooks use `apache2` `php` `composer` recipes retrieved from Chef Superm
     * Note: `composer` is optional recipe if you want to use composer
   * Deploy: `deploy::php-deploy`
     * Note: `deploy::laravel5-deploy` is optional recipe for Laravel 5.1 initial configuration (`composer` required)
+      * You can customize `.env` configuration with `laravel5_deploy.dotenv` object in Stack Custom JSON (The `.env` file copied from `.env.example` file, and replace `key=value` pair in `.env` file by `laravel5_deploy.dotenv` object's key-value pair).
 
 ## Initial Apps Setup
 
@@ -73,7 +74,7 @@ If you want to try deployment, we have prepared a sample application that displa
   },
   "laravel5_deploy": {
     "dotenv": {
-      "APP_ENV": "development",
+      "APP_ENV": "production",
       "APP_DEBUG": false
     }
   }
