@@ -8,7 +8,7 @@ node[:deploy].each do |app_name, deploy|
   # Execute `php artisan migrate:refresh`.
   execute "artisan migrate:refresh" do
     command <<-EOH
-      php #{deploy[:deploy_to]}/current/artisan migrate:refresh
+      php #{deploy[:deploy_to]}/current/artisan migrate:refresh --seed
     EOH
   end
 
