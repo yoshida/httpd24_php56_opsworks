@@ -182,7 +182,7 @@ Next, Set up the Apps.
 * Note: Generating a application key -> http://laravel-recipes.com/recipes/283/generating-a-new-application-key
 
 4. Deploy `wiki` application
-5. Execute the `deploy::laravel5-migrate-refresh` recipe from `Stack -> Run Command -> Execute Recipes` in PHP5.6 instance
+5. Execute the `deploy::laravel5-migrate-refresh` recipe from `Stack -> Run Command -> Execute Recipes` on PHP 5.6 instance
 6. Open http://[your-server]/
 
 
