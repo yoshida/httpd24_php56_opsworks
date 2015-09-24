@@ -23,6 +23,7 @@ This cookbooks use `apache2` `php` `composer` recipes retrieved from Chef Superm
 4. Edit the newly created layer, and add the custom recipes:
   * Setup: `apache2` `php` `apache2::mod_php5` `composer`
     * Note: `composer` is optional recipe if you want to use composer
+    * Note: `prompt` is optional recipe for display stack name to Prompt String (PS1).
   * Deploy: `deploy::php-deploy`
     * Note: `deploy::laravel5-deploy` is optional recipe for Laravel 5.1 initial configuration (`composer` required)
       * You can customize `.env` configuration with `laravel5_deploy.dotenv` object in Stack Custom JSON (The `.env` file copied from `.env.example` file, and replace `key=value` pair in `.env` file by `laravel5_deploy.dotenv` object's key-value pair).
