@@ -185,4 +185,7 @@ Next, Set up the Apps.
 5. Execute the `deploy::laravel5-migrate-refresh` recipe from `Stack -> Run Command -> Execute Recipes` on PHP 5.6 instance
 6. Open http://[your-server]/
 
-
+If you cannot access the application, check these log files:
+* /srv/www/wiki/current/storage/logs/*.log
+* /var/log/httpd/wiki-error.log
+* /var/log/httpd/error.log
