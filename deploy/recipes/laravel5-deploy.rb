@@ -8,7 +8,7 @@ node[:deploy].each do |app_name, deploy|
   # Execute `composer install`.
   execute "composer" do
     command <<-EOH
-      composer install -d #{deploy[:deploy_to]}/current
+      composer install -d #{deploy[:deploy_to]}/current --no-dev --optimize-autoloader
     EOH
   end
 
