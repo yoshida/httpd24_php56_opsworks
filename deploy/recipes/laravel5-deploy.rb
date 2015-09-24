@@ -12,13 +12,6 @@ node[:deploy].each do |app_name, deploy|
     EOH
   end
 
-  # Copy the ".env.example" file to ".env" file.
-  file "#{deploy[:deploy_to]}/current/.env" do
-    content lazy { IO.read("#{deploy[:deploy_to]}/current/.env.example") }
-    group deploy[:group]
-    owner deploy[:user]
-  end
-  
   # Copy the ".env.example" to ".env", and edit environment configration from 'Stack Custom JSON' setting.
   file "#{deploy[:deploy_to]}/current/.env" do
     group deploy[:group]
