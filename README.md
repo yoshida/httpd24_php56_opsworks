@@ -22,7 +22,7 @@ This cookbooks use `apache2` `php` `composer` recipes retrieved from Chef Superm
   * Short name: `php56app` (as you like)
 4. Edit the newly created layer, and add the custom recipes:
   * Setup: `apache2` `php` `apache2::mod_php5` `composer`
-    * Note: `apache2::mod_ssl` is optional recipe if you want to use https
+    * Note: If you want to use https, add the `apache2::mod_ssl` recipe, and add 443 to `apache.listen_ports` in Stack Custom JSON.
     * Note: `composer` is optional recipe if you want to use composer
     * Note: `prompt` is optional recipe for display stack name to Prompt String (PS1)
   * Configure: `php::configure`
