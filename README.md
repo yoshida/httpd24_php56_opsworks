@@ -71,7 +71,7 @@ If you want to try deployment, we have prepared a sample application that displa
        "error_log": "/var/log/httpd/php_errors.log"
      }
    },
-   "laravel5-deploy": {
+   "laravel5_deploy": {
      "app_env": "development",
      "app_debug": true
    }
