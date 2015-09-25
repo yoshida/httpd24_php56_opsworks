@@ -52,7 +52,7 @@ node[:deploy].each do |app_name, deploy|
     to "#{deploy[:deploy_to]}/current/log"
   end
   execute "Add write-access permission to storage/logs/*.log" do
-    command "chmod 666 #{deploy[:deploy_to]}/current/storage/logs/*.log"
+    command "chmod -R 666 #{deploy[:deploy_to]}/current/storage/logs"
   end
 
 end
