@@ -189,3 +189,4 @@ If you cannot access the application, check these log files:
 * /srv/www/wiki/current/storage/logs/*.log
 * /var/log/httpd/wiki-error.log
 * /var/log/httpd/error.log
+* /var/log/httpd/php_errors.log
