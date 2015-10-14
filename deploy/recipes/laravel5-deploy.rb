@@ -31,12 +31,17 @@ node[:deploy].each do |app_name, deploy|
     }
   end
 
-  # Add write-access permission to "storage" directory.
+  # Add write-access permission to "shared/log" directory.
+  execute "Add write-access permission to storage directory" do
+    command "chmod -R 777 #{deploy[:deploy_to]}/shared/log"
+  end
+
+  # Add write-access permission to "current/storage" directory.
   execute "Add write-access permission to storage directory" do
     command "chmod -R 777 #{deploy[:deploy_to]}/current/storage"
   end
 
-  # Add write-access permission to "bootstrap/cache" directory.
+  # Add write-access permission to "current/bootstrap/cache" directory.
   execute "Add write-access permission to bootstrap/cache directory" do
     command "chmod -R 777 #{deploy[:deploy_to]}/current/bootstrap/cache"
   end
