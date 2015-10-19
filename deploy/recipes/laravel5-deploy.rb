@@ -54,7 +54,7 @@ node[:deploy].each do |app_name, deploy|
   link "#{deploy[:deploy_to]}/current/storage/logs" do
     group deploy[:group]
     owner deploy[:user]
-    to "#{deploy[:deploy_to]}/current/log"
+    to "#{deploy[:deploy_to]}/shared/log"
   end
   execute "Add write-access permission to storage/logs/*.log" do
     command "chmod -R 666 #{deploy[:deploy_to]}/current/storage/logs"
