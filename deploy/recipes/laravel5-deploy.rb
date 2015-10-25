@@ -50,7 +50,7 @@ node[:deploy].each do |app_name, deploy|
     to "#{deploy[:deploy_to]}/shared/log"
   end
   execute "Add write-access permission to storage/logs/*.log" do
-    command "chmod -R 666 #{deploy[:deploy_to]}/current/storage/logs"
+    command "chmod -R 777 #{deploy[:deploy_to]}/current/storage/logs"
   end
 
   # Execute `composer install`.
