@@ -33,17 +33,17 @@ node[:deploy].each do |app_name, deploy|
 
   # Add write-access permission to "shared/log" directory.
   execute "Add write-access permission to storage directory" do
-    command "chmod -R 777 #{deploy[:deploy_to]}/shared/log"
+    command "chmod -R 775 #{deploy[:deploy_to]}/shared/log"
   end
 
   # Add write-access permission to "current/storage" directory.
   execute "Add write-access permission to storage directory" do
-    command "chmod -R 777 #{deploy[:deploy_to]}/current/storage"
+    command "chmod -R 775 #{deploy[:deploy_to]}/current/storage"
   end
 
   # Add write-access permission to "current/bootstrap/cache" directory.
   execute "Add write-access permission to bootstrap/cache directory" do
-    command "chmod -R 777 #{deploy[:deploy_to]}/current/bootstrap/cache"
+    command "chmod -R 775 #{deploy[:deploy_to]}/current/bootstrap/cache"
   end
   
   # Delete <root>/storage/logs and create symlink <root>/storage/logs pointing to <root>/log
@@ -55,9 +55,6 @@ node[:deploy].each do |app_name, deploy|
     group deploy[:group]
     owner deploy[:user]
     to "#{deploy[:deploy_to]}/shared/log"
-  end
-  execute "Add write-access permission to storage/logs/*.log" do
-    command "chmod -R 666 #{deploy[:deploy_to]}/current/storage/logs"
   end
 
 end
