@@ -5,13 +5,6 @@
 
 node[:deploy].each do |app_name, deploy|
 
-  # Execute `composer install`.
-  execute "composer" do
-    command <<-EOH
-      composer install -d #{deploy[:deploy_to]}/current --optimize-autoloader
-    EOH
-  end
-
   # Copy the ".env.example" to ".env", and edit environment configration from 'Stack Custom JSON' setting.
   file "#{deploy[:deploy_to]}/current/.env" do
     group deploy[:group]
@@ -60,4 +53,11 @@ node[:deploy].each do |app_name, deploy|
     command "chmod -R 666 #{deploy[:deploy_to]}/current/storage/logs"
   end
 
+  # Execute `composer install`.
+  execute "composer" do
+    command <<-EOH
+      composer install -d #{deploy[:deploy_to]}/current --optimize-autoloader
+    EOH
+  end
+  
 end
